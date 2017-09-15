@@ -112,12 +112,10 @@ function setup() {
 
   Open.push(startNode);
   console.log(grid);
-
 }
 
 
 function draw() {
-
   if (Open.length > 0){
 
     var smallNeighbor = 0;
@@ -143,10 +141,10 @@ function draw() {
       var currentNeighbor = neighbours[i];
 
       if(!Closed.includes(currentNeighbor) && !currentNeighbor.obstacle){
-        var tempG = currentNode.g + heuristic(currentNeighbor,currentNode);// revisar isso
+        var tempG = currentNode.g + heuristic(currentNeighbor,currentNode);
 
         var isBest = false;
-        if(Open.includes(currentNeighbor)){//verifica se o G encontrado é o melhor
+        if(Open.includes(currentNeighbor)){
           if(tempG < currentNeighbor.g){
             currentNeighbor.g = tempG;
             isBest = true;
@@ -180,11 +178,11 @@ function draw() {
   }
 
   for(var i = 0; i< Closed.length; i++){
-    Closed[i].show(color(255, 235, 22)); // yellow
+    Closed[i].show(color(255,0,0)); // red
   }
 
   for(var i = 0; i< Open.length; i++){
-    Open[i].show(color(22, 212, 255)); // green
+    Open[i].show(color(0, 255, 0)); // green
   }
 
   path = [];
@@ -196,8 +194,6 @@ function draw() {
   }
 
   for(var i =0; i< path.length; i++){ // blue
-    path[i].show(color(127, 11, 140));
+    path[i].show(color(0, 0, 255));
   }
-
-
 }
